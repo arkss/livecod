@@ -1017,21 +1017,29 @@
       markers.push(marker);
       infowindows.push(infowindow);
     }
-
-    naver.maps.Event.addListener(markers[0], "click", function (e) {
-      if (infowindows[0].getMap()) {
-        infowindows[0].close();
-      } else {
-        infowindows[0].open(map, markers[0]);
-      }
-    });
-    naver.maps.Event.addListener(markers[1], "click", function (e) {
-      if (infowindows[1].getMap()) {
-        infowindows[1].close();
-      } else {
-        infowindows[1].open(map, markers[1]);
-      }
-    });
+    for (var i = 0; jejuMedicalCenters.length; i++) {
+      naver.maps.Event.addListener(markers[i], "click", function (e) {
+        if (infowindows[i].getMap()) {
+          infowindows[i].close();
+        } else {
+          infowindows[i].open(map, markers[i]);
+        }
+      });
+    }
+    // naver.maps.Event.addListener(markers[0], "click", function (e) {
+    //   if (infowindows[0].getMap()) {
+    //     infowindows[0].close();
+    //   } else {
+    //     infowindows[0].open(map, markers[0]);
+    //   }
+    // });
+    // naver.maps.Event.addListener(markers[1], "click", function (e) {
+    //   if (infowindows[1].getMap()) {
+    //     infowindows[1].close();
+    //   } else {
+    //     infowindows[1].open(map, markers[1]);
+    //   }
+    // });
     // naver.maps.Event.addListener(marker, "click", function (e) {
     //   if (infowindow.getMap()) {
     //     infowindow.close();
