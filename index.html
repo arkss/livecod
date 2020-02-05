@@ -983,7 +983,7 @@
     var position = new naver.maps.LatLng(33.4670605, 126.5370226);
     var map = new naver.maps.Map('map', {
       center: position,
-      zoom: 11
+      zoom: 12
     });
     var markers = []
     var infowindows = []
@@ -1020,6 +1020,8 @@
     console.log(markers)
     console.log(infowindows)
     for (i in markers) {
+      console.log(markers[i]);
+      console.log(infowindows[i]);
       naver.maps.Event.addListener(markers[i], "click", function (e) {
         if (infowindows[i].getMap()) {
           infowindows[i].close();
