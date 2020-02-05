@@ -10,7 +10,7 @@
   <meta name="author" content="">
 
   <title>코로나 맵</title>
-
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=26ba2oaskk"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-157131634-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -757,11 +757,12 @@
               </div>
             </div>
 
+            
             <div class="col-xl-4 col-lg-4">
               <div class="card shadow mb-12">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-danger">제주 지역 선별 진료소</h6>
+                  <h6 class="m-0 font-weight-bold text-danger">제주지역선별진료소</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
@@ -774,12 +775,11 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                  네이버 지도가 들어갈 위치
+                 지도가 들어갈 위치
+                 <div id="map" style="width:100%;height:400px;"></div>
                 </div>
               </div>
-            </div>
-            <div class="col-xl-4 col-lg-4">
-              <div class="card shadow mb-12">
+              <div class="card shadow mb-12 mt-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-danger">공지사항</h6>
@@ -861,6 +861,12 @@
     document.getElementById("확진자수").innerHTML = Number(확진자수).toLocaleString();
     document.getElementById("사망자수").innerHTML = Number(사망자수).toLocaleString();
 
+  var mapOptions = {
+    center: new naver.maps.LatLng(seoul["lat"], seoul["lng"]),
+    zoom: 6
+  };
+
+  var map = new naver.maps.Map('map', mapOptions); 
 
 
     // //선별진료소 마킹
