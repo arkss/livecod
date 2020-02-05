@@ -1018,6 +1018,7 @@
       infowindows.push(infowindow);
     }
     for (var i = 0; i < jejuMedicalCenters.length; i++) {
+      console.log(i);
       naver.maps.Event.addListener(markers[i], "click", function (e) {
         if (infowindows[i].getMap()) {
           infowindows[i].close();
