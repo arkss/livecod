@@ -1021,10 +1021,10 @@
     console.log(infowindows)
     for (i in markers) {
       naver.maps.Event.addListener(markers[i], "click", function (e) {
-        if (infowindow[i].getMap()) {
-          infowindow[i].close();
+        if (infowindows[i].getMap()) {
+          infowindows[i].close();
         } else {
-          infowindow[i].open(map, marker[i]);
+          infowindows[i].open(map, markers[i]);
         }
       });
     }
