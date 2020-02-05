@@ -983,12 +983,15 @@
     var position = new naver.maps.LatLng(33.4670605, 126.5370226);
     var map = new naver.maps.Map('map', {
       center: position,
-      zoom: 8
+      zoom: 10
     });
     console.log(jejuMedicalCenters);
     for (jejuMedicalCenter of jejuMedicalCenters) {
       var lat = jejuMedicalCenter.lat;
       var lng = jejuMedicalCenter.lng;
+      var name = jejuMedicalCenter["이름"];
+      var address = jejuMedicalCenter["주소"];
+      var phone = jejuMedicalCenter["전화번호"];
 
       var markerOptions = {
         position: {
@@ -996,15 +999,17 @@
           lng: lng
         },
         map: map
-        // icon: {
-        //   url: './img/red_cross.svg',
-        //   size: new naver.maps.Size(50, 52),
-        //   origin: new naver.maps.Point(0, 0),
-        //   anchor: new naver.maps.Point(25, 26)
-        // }
       };
 
       var marker = new naver.maps.Marker(markerOptions);
+      var infowindow = new naver.maps.InfoWindow({
+        content: `
+          이름 : ${name}<br>
+          주소 : ${address}<br>
+          전화번호 : ${phone}
+        `
+      });
+      infowindow.open(map, marker);
     }
   </script>
 
