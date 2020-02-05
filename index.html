@@ -1057,7 +1057,6 @@
       iwContent1 = [
         '<div>',
         '<div style="margin:0;padding:0;">',
-        '<a href="#" class="spmc btn_clear">핀 삭제</a>',
         '<div>정보 창 + 마커 1번 콘텐츠입니다.</div>',
         '</div>',
         '</div>'
@@ -1065,10 +1064,6 @@
       infowindow1 = new naver.maps.InfoWindow({
         content: iwContent1
       });
-
-    $(infowindow1.getWrapElement()).find('.btn_clear').on('click', function (e) {
-      infowindow1.close();
-    });
 
     naver.maps.Event.addListener(marker1, 'click', function (e) {
       infowindow1.open(map, marker1);
@@ -1087,7 +1082,6 @@
       iwContent2 = [
         '<div>',
         '<div style="margin:0;padding:0;">',
-        '<a href="#" class="spmc btn_clear">핀 삭제</a>',
         '<div>정보 창 + 마커 2번 콘텐츠입니다.</div>',
         '</div>',
         '</div>'
@@ -1095,11 +1089,6 @@
       infowindow2 = new naver.maps.InfoWindow({
         content: iwContent2
       });
-
-
-    $(infowindow2.getWrapElement()).find('.btn_clear').on('click', function (e) {
-      infowindow2.close();
-    });
 
     naver.maps.Event.addListener(marker2, 'click', function (e) {
       infowindow2.open(map, marker2);
