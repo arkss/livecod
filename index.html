@@ -1004,9 +1004,11 @@
       var marker = new naver.maps.Marker(markerOptions);
       var infowindow = new naver.maps.InfoWindow({
         content: `
-          이름 : ${name}<br>
-          주소 : ${address}<br>
-          전화번호 : ${phone}
+          <div style="padding:3px;">
+            이름 : ${name}<br>
+            주소 : ${address}<br>
+            전화번호 : ${phone}
+          </div>
         `
       });
 
