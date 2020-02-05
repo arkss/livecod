@@ -916,32 +916,32 @@
     document.getElementById("사망자수").innerHTML = Number(사망자수).toLocaleString();
 
 
-    console.log(jejuMedicalCenters)
-    var map = new naver.maps.Map('map', mapOptions);
+    // console.log(jejuMedicalCenters)
+    // var map = new naver.maps.Map('map', mapOptions);
 
-    function MarkerMaker(lat, lng) {
-      console.log("MarkerMaker실행");
-      var markerOptions = {
-        position: {
-          lat: lat,
-          lng: lng
-        },
-        map: map,
-        icon: {
-          url: './img/red_cross.svg',
-          size: new naver.maps.Size(50, 52),
-          scaledSize: new naver.maps.Size(25, 26),
-        }
-      };
+    // function MarkerMaker(lat, lng) {
+    //   console.log("MarkerMaker실행");
+    //   var markerOptions = {
+    //     position: {
+    //       lat: lat,
+    //       lng: lng
+    //     },
+    //     map: map,
+    //     icon: {
+    //       url: './img/red_cross.svg',
+    //       size: new naver.maps.Size(50, 52),
+    //       scaledSize: new naver.maps.Size(25, 26),
+    //     }
+    //   };
 
-      var marker = new naver.maps.Marker(markerOptions);
-    }
+    //   var marker = new naver.maps.Marker(markerOptions);
+    // }
 
-    for (jejuMedicalCenter in jejuMedicalCenters) {
-      var lat = jejuMedicalCenter.lat;
-      var lng = jejuMedicalCenter.lng;
-      MarkerMaker(lat, lng);
-    }
+    // for (jejuMedicalCenter in jejuMedicalCenters) {
+    //   var lat = jejuMedicalCenter.lat;
+    //   var lng = jejuMedicalCenter.lng;
+    //   MarkerMaker(lat, lng);
+    // }
     // {
     //     "이름": "제주대학교병원",
     //     "lat": "33.4670605",
@@ -961,20 +961,23 @@
 
 
     // //선별진료소 마킹
-    // var data2 = 제주지역선별진료소;
-    // for (var i in data2) {
-    //   console.log(data2);
-    //   var marker2 = new google.maps.Marker({
-    //     position: {lat: Number(data2[i]["lat"]), lng: Number(data2[i]["lng"])},
-    //     map: map
-    //   });
-    //   var infowindow2 = new google.maps.InfoWindow({
-    //     content: `이름 : ${data2[i]["이름"]}<br>
-    //     주소 : ${data2[i]["주소"]}<br>
-    //     전화번호 : ${data2[i]["전화번호"]}`
-    //   });
-    //   infowindow2.open(map, marker2);
-    // }
+    var data2 = jejuMedicalCenters;
+    for (var i in data2) {
+      console.log(data2);
+      var marker2 = new google.maps.Marker({
+        position: {
+          lat: Number(data2[i]["lat"]),
+          lng: Number(data2[i]["lng"])
+        },
+        map: map
+      });
+      var infowindow2 = new google.maps.InfoWindow({
+        content: `이름 : ${data2[i]["이름"]}<br>
+        주소 : ${data2[i]["주소"]}<br>
+        전화번호 : ${data2[i]["전화번호"]}`
+      });
+      infowindow2.open(map, marker2);
+    }
   </script>
 
 
