@@ -860,12 +860,13 @@
     document.getElementById("발생국가수").innerHTML = data.length;
     document.getElementById("확진자수").innerHTML = Number(확진자수).toLocaleString();
     document.getElementById("사망자수").innerHTML = Number(사망자수).toLocaleString();
-
+  
+  
+  var seoul = {"lat": 37.5456299, "lng": 126.9540667};
   var mapOptions = {
     center: new naver.maps.LatLng(seoul["lat"], seoul["lng"]),
     zoom: 6
   };
-
   var map = new naver.maps.Map('map', mapOptions); 
 
 
