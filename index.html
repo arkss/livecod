@@ -1019,6 +1019,15 @@
     }
     console.log(markers)
     console.log(infowindows)
+    for (i in markers) {
+      naver.maps.Event.addListener(markers[i], "click", function (e) {
+        if (infowindow[i].getMap()) {
+          infowindow[i].close();
+        } else {
+          infowindow[i].open(map, marker[i]);
+        }
+      });
+    }
     // naver.maps.Event.addListener(marker, "click", function (e) {
     //   if (infowindow.getMap()) {
     //     infowindow.close();
