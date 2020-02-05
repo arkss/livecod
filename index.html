@@ -983,7 +983,7 @@
     var position = new naver.maps.LatLng(33.4670605, 126.5370226);
     var map = new naver.maps.Map('map', {
       center: position,
-      zoom: 10
+      zoom: 8
     });
     console.log(jejuMedicalCenters);
     for (jejuMedicalCenter of jejuMedicalCenters) {
@@ -995,13 +995,13 @@
           lat: lat,
           lng: lng
         },
-        map: map,
-        icon: {
-          url: './img/red_cross.svg',
-          size: new naver.maps.Size(50, 52),
-          origin: new naver.maps.Point(0, 0),
-          anchor: new naver.maps.Point(25, 26)
-        }
+        map: map
+        // icon: {
+        //   url: './img/red_cross.svg',
+        //   size: new naver.maps.Size(50, 52),
+        //   origin: new naver.maps.Point(0, 0),
+        //   anchor: new naver.maps.Point(25, 26)
+        // }
       };
 
       var marker = new naver.maps.Marker(markerOptions);
