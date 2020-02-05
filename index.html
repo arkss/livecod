@@ -1043,58 +1043,66 @@
       zoom: 11
     });
 
+    index = 1;
     // 1. 정보 창 + 마커
-    var marker1 = new naver.maps.Marker({
-        position: new naver.maps.LatLng(33.4670605, 126.5370226),
-        icon: {
-          url: 'https://ssl.pstatic.net/static/maps/img/icons/pin_s_1.png',
-          size: new naver.maps.Size(22, 30),
-          anchor: new naver.maps.Point(11, 30)
-        },
-        title: '1번 마커',
-        map: map
-      }),
-      iwContent1 = [
-        '<div>',
-        '<div style="margin:0;padding:0;">',
-        '<div>정보 창 + 마커 1번 콘텐츠입니다.</div>',
-        '</div>',
-        '</div>'
-      ].join(''),
+    for (jejuMedicalCenter of jejuMedicalCenters) {
+      var lat = jejuMedicalCenter.lat;
+      var lng = jejuMedicalCenter.lng;
+      var name = jejuMedicalCenter["이름"];
+      var address = jejuMedicalCenter["주소"];
+      var phone = jejuMedicalCenter["전화번호"];
+
+      var marker = new naver.maps.Marker({
+          position: new naver.maps.LatLng(lat, lng),
+          icon: {
+            url: `https://ssl.pstatic.net/static/maps/img/icons/pin_s_${index}.png`,
+            size: new naver.maps.Size(22, 30),
+            anchor: new naver.maps.Point(11, 30)
+          },
+          title: '1번 마커',
+          map: map
+        }),
+        content = `
+          <div style="padding:3px;">
+            이름 : ${name}<br>
+            주소 : ${address}<br>
+            전화번호 : ${phone}
+          </div>
+        `
       infowindow1 = new naver.maps.InfoWindow({
-        content: iwContent1
+        content: content
       });
 
-    naver.maps.Event.addListener(marker1, 'click', function (e) {
-      infowindow1.open(map, marker1);
-    });
-
-    var marker2 = new naver.maps.Marker({
-        position: new naver.maps.LatLng(33.4962918, 126.5374979),
-        icon: {
-          url: 'https://ssl.pstatic.net/static/maps/img/icons/pin_s_2.png',
-          size: new naver.maps.Size(22, 30),
-          anchor: new naver.maps.Point(11, 30)
-        },
-        title: '2번 마커',
-        map: map
-      }),
-      iwContent2 = [
-        '<div>',
-        '<div style="margin:0;padding:0;">',
-        '<div>정보 창 + 마커 2번 콘텐츠입니다.</div>',
-        '</div>',
-        '</div>'
-      ].join(''),
-      infowindow2 = new naver.maps.InfoWindow({
-        content: iwContent2
+      naver.maps.Event.addListener(marker, 'click', function (e) {
+        infowindow1.open(map, marker);
       });
+    }
+    // var marker2 = new naver.maps.Marker({
+    //     position: new naver.maps.LatLng(33.4962918, 126.5374979),
+    //     icon: {
+    //       url: 'https://ssl.pstatic.net/static/maps/img/icons/pin_s_2.png',
+    //       size: new naver.maps.Size(22, 30),
+    //       anchor: new naver.maps.Point(11, 30)
+    //     },
+    //     title: '2번 마커',
+    //     map: map
+    //   }),
+    //   iwContent2 = [
+    //     '<div>',
+    //     '<div style="margin:0;padding:0;">',
+    //     '<div>정보 창 + 마커 2번 콘텐츠입니다.</div>',
+    //     '</div>',
+    //     '</div>'
+    //   ].join(''),
+    //   infowindow2 = new naver.maps.InfoWindow({
+    //     content: iwContent2
+    //   });
 
-    naver.maps.Event.addListener(marker2, 'click', function (e) {
-      infowindow2.open(map, marker2);
-    });
+    // naver.maps.Event.addListener(marker2, 'click', function (e) {
+    //   infowindow2.open(map, marker2);
+    // });
 
-    infowindow2.open(map, marker2);
+    // infowindow2.open(map, marker2);
   </script>
 
 
