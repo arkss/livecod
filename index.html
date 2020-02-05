@@ -917,6 +917,7 @@
 
 
     console.log(jejuMedicalCenters)
+    var map = new naver.maps.Map('map', mapOptions);
 
     function MarkerMaker(lat, lng) {
       console.log("MarkerMaker실행");
@@ -948,15 +949,15 @@
     //     "주소": "제주 제주시 아란13길 15",
     //     "전화번호": "064-717-1075"
     // }
-    var seoul = {
-      "lat": 37.5456299,
-      "lng": 126.9540667
-    };
-    var mapOptions = {
-      center: new naver.maps.LatLng(seoul["lat"], seoul["lng"]),
-      zoom: 6
-    };
-    var map = new naver.maps.Map('map', mapOptions);
+    // var seoul = {
+    //   "lat": 37.5456299,
+    //   "lng": 126.9540667
+    // };
+    // var mapOptions = {
+    //   center: new naver.maps.LatLng(seoul["lat"], seoul["lng"]),
+    //   zoom: 6
+    // };
+
 
 
     // //선별진료소 마킹
