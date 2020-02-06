@@ -915,40 +915,6 @@
     document.getElementById("확진자수").innerHTML = Number(확진자수).toLocaleString();
     document.getElementById("사망자수").innerHTML = Number(사망자수).toLocaleString();
 
-
-    // console.log(jejuMedicalCenters)
-    // var map = new naver.maps.Map('map', mapOptions);
-
-    // function MarkerMaker(lat, lng) {
-    //   console.log("MarkerMaker실행");
-    //   var markerOptions = {
-    //     position: {
-    //       lat: lat,
-    //       lng: lng
-    //     },
-    //     map: map,
-    //     icon: {
-    //       url: './img/red_cross.svg',
-    //       size: new naver.maps.Size(50, 52),
-    //       scaledSize: new naver.maps.Size(25, 26),
-    //     }
-    //   };
-
-    //   var marker = new naver.maps.Marker(markerOptions);
-    // }
-
-    // for (jejuMedicalCenter in jejuMedicalCenters) {
-    //   var lat = jejuMedicalCenter.lat;
-    //   var lng = jejuMedicalCenter.lng;
-    //   MarkerMaker(lat, lng);
-    // }
-    // {
-    //     "이름": "제주대학교병원",
-    //     "lat": "33.4670605",
-    //     "lng": "126.5370226",
-    //     "주소": "제주 제주시 아란13길 15",
-    //     "전화번호": "064-717-1075"
-    // }
     // var seoul = {
     //   "lat": 37.5456299,
     //   "lng": 126.9540667
@@ -1034,6 +1000,7 @@
         infowindows[0].open(map, markers[0]);
       }
     });
+
     naver.maps.Event.addListener(markers[1], "click", function (e) {
       if (infowindows[1].getMap()) {
         infowindows[1].close();
@@ -1041,11 +1008,44 @@
         infowindows[1].open(map, markers[1]);
       }
     });
-    naver.maps.Event.addListener(marker, "click", function (e) {
-      if (infowindow.getMap()) {
-        infowindow.close();
+
+    naver.maps.Event.addListener(markers[2], "click", function (e) {
+      if (infowindows[2].getMap()) {
+        infowindows[2].close();
       } else {
-        infowindow.open(map, marker);
+        infowindows[2].open(map, markers[2]);
+      }
+    });
+
+    naver.maps.Event.addListener(markers[3], "click", function (e) {
+      if (infowindows[3].getMap()) {
+        infowindows[3].close();
+      } else {
+        infowindows[3].open(map, markers[3]);
+      }
+    });
+
+    naver.maps.Event.addListener(markers[4], "click", function (e) {
+      if (infowindows[4].getMap()) {
+        infowindows[4].close();
+      } else {
+        infowindows[4].open(map, markers[4]);
+      }
+    });
+
+    naver.maps.Event.addListener(markers[5], "click", function (e) {
+      if (infowindows[5].getMap()) {
+        infowindows[5].close();
+      } else {
+        infowindows[5].open(map, markers[5]);
+      }
+    });
+
+    naver.maps.Event.addListener(markers[6], "click", function (e) {
+      if (infowindows[6].getMap()) {
+        infowindows[6].close();
+      } else {
+        infowindows[6].open(map, markers[6]);
       }
     });
   </script>
